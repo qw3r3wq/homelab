@@ -1,2 +1,2 @@
-# homelab
-Openstack TripleO homelab
+# Remote booting
+Openstack TripleO remote boot
