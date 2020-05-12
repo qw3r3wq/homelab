@@ -1,0 +1,76 @@
+resource_registry:
+  # OS::TripleO::Controller::Net::SoftwareConfig: /home/stack/overcloud/net-controller.yaml
+  OS::TripleO::Controller::Net::SoftwareConfig: net-config/controller.yaml
+  OS::TripleO::ComputeS01::Net::SoftwareConfig: net-config/computes01.yaml
+  # OS::TripleO::ComputeS01::Net::SoftwareConfig: /home/stack/overcloud/net-computes01.yaml
+
+parameter_defaults:
+  ControllerCount: 1
+  ComputeS01Count: 1
+
+  OvercloudControllerFlavor: control
+  OvercloudComputeS01Flavor: compute
+  ComputeS01ControlPlaneSubnet: remote-provision
+
+  ControllerHostnameFormat: '%stackname%-ctrl-%index%'
+  ComputeS01HostnameFormat: '%stackname%-compr-%index%'
+
+  ControllerSchedulerHints:
+    'capabilities:profile': 'control'
+  ComputeS01SchedulerHints:
+    'capabilities:profile': 'compute'
+
+  TimeZone: "Europe/Stockholm"
+
+  ComputeS01Parameters:
+    NovaReservedHostMemory: 16384
+    KernelArgs: "crashkernel=no rhgb"
+  ComputeS01ExtraConfig:
+    nova::cpu_allocation_ratio: 4.0
+    nova::compute::libvirt::rx_queue_size: 1024
+    nova::compute::libvirt::tx_queue_size: 1024
+    nova::compute::resume_guests_state_on_host_boot: true
+
+  NetworkDeploymentActions: ['CREATE','UPDATE']
+  BondInterfaceOvsOptions: 'bond_mode=active-backup'
+#  NeutronBridgeMappings: datacentre:br-ex
+  # NeutronExternalNetworkBridge: 'br-ex'
+
+#  NeutronEnableIsolatedMetadata: true # not taking, not sure why, need to check tha name of parameter
+#  NeutronEnableForceMetadata: true # not taking, not sure why, need to check tha name of parameter
+  NeutronNetworkType: 'geneve,vlan,flat'
+#  NeutronTunnelTypes: 'vxlan' # not taking, not sure why, need to check tha name of parameter
+  NeutronBridgeMappings: 'default:br-provider'
+  NeutronGlobalPhysnetMtu: 1500
+
+
+
+  NovaIPv6: True
+  NovaSchedulerDefaultFilters: ['RetryFilter','AvailabilityZoneFilter','RamFilter','ComputeFilter','ComputeCapabilitiesFilter','ImagePropertiesFilter','ServerGroupAntiAffinityFilter','ServerGroupAffinityFilter','PciPassthroughFilter','NUMATopologyFilter','AggregateInstanceExtraSpecsFilter','AggregateCoreFilter']
+  NovaReservedHostMemory: 16384
+
+  BannerText: |
+    ******************************************************************
+    * **************************** B0o0bs ************************** *
+    * This system is for the use of authorized users only. Usage of  *
+    * this system may be monitored and recorded by system personnel. *
+    * Anyone using this system expressly consents to such monitoring *
+    * and is advised that if such monitoring reveals possible        *
+    * evidence of criminal activity, system personnel may provide    *
+    * the evidence from such monitoring to law enforcement officials.*
+    ******************************************************************
+  MessageOfTheDay: |
+    ALERT! You are entering into a secured Cloud B0o0bs area!
+    This service is restricted to authorized users only.
+    Please keep in mind, we are Angry and Bold! We will destroy you!
+
+#parameter_defaults:
+#  OvercloudComputeLeaf0Flavor: compute-leaf0
+#  OvercloudComputeLeaf1Flavor: compute-leaf1
+#  ControllerCount: 3
+#  ComputeLeaf0Count: 5
+#  ComputeLeaf1Count: 5
+#  ControllerControlPlaneSubnet: leaf0
+#  ComputeLeaf0ControlPlaneSubnet: leaf0
+#  ComputeLeaf1ControlPlaneSubnet: leaf1
+# from https://docs.openstack.org/project-deploy-guide/tripleo-docs/latest/features/routed_spine_leaf_network.html
