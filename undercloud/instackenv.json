@@ -1,11 +1,46 @@
-{"nodes": 
-  [
-    {"name": "T5610",
-      "pm_type": "manual-management",
-      "ports": [{"address": "34:17:EB:B8:DA:58", "physical_network": "ctlplane"}],
-      "cpu": "2",
-      "memory": "131072",
-      "disk": "200",
-      "arch": "x86_64"}
-  ]
+{
+    "nodes": [
+        {
+            "name": "se809",
+            "pm_type": "idrac",
+            "cpu": "2",
+            "memory": "4096",
+            "disk": "40",
+            "arch": "x86_64",
+            "pm_user": "root",
+            "pm_password": "calvin",
+            "pm_addr": "10.16.20.9",
+            "root_device": {
+                  "name": "/dev/sda"
+            },
+            "ports": [
+                {
+                    "address": "b4:96:91:13:ff:c0",
+                    "physical_network": "ctlplane"
+                }
+            ],
+            "_comment": "Room 1 - Rack A - Unit 22/24"
+        },
+        {
+            "name": "se810",
+            "pm_type": "idrac",
+            "cpu": "2",
+            "memory": "4096",
+            "disk": "40",
+            "arch": "x86_64",
+            "pm_user": "root",
+            "pm_password": "calvin",
+            "pm_addr": "10.16.20.10",
+            "root_device": {
+                  "name": "/dev/sda"
+            },
+            "ports": [
+                {
+                    "address": "24:6e:96:14:a1:a4",
+                    "physical_network": "remote-provision"
+                }
+            ],
+            "_comment": "Room 1 - Rack A - Unit 22/25"
+        }
+    ]
 }
