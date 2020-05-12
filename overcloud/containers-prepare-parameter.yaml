@@ -5,7 +5,7 @@
 
 parameter_defaults:
   ContainerImagePrepare:
-  - push_destination: $(grep ^local_ip ~/undercloud.conf|awk ):8787
+  - push_destination: $(grep ^local_ip ~/undercloud.conf|awk '-F=' '{print $2}'):8787
     set:
       ceph_alertmanager_image: alertmanager
       ceph_alertmanager_namespace: docker.io/prom
