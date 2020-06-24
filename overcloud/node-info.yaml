@@ -1,7 +1,7 @@
 resource_registry:
   # OS::TripleO::Controller::Net::SoftwareConfig: /home/stack/overcloud/net-controller.yaml
-  OS::TripleO::Controller::Net::SoftwareConfig: net-config/controller.yaml
-  OS::TripleO::ComputeS01::Net::SoftwareConfig: net-config/computes01.yaml
+  ##OS::TripleO::Controller::Net::SoftwareConfig: net-config/controller.yaml
+  ##OS::TripleO::ComputeS01::Net::SoftwareConfig: net-config/computes01.yaml
   # OS::TripleO::ComputeS01::Net::SoftwareConfig: /home/stack/overcloud/net-computes01.yaml
 
 parameter_defaults:
@@ -36,17 +36,15 @@ parameter_defaults:
 #  NeutronBridgeMappings: datacentre:br-ex
   # NeutronExternalNetworkBridge: 'br-ex'
 
-#  NeutronEnableIsolatedMetadata: true # not taking, not sure why, need to check tha name of parameter
-#  NeutronEnableForceMetadata: true # not taking, not sure why, need to check tha name of parameter
+#  NeutronEnableIsolatedMetadata: true
+#  NeutronEnableForceMetadata: true
   NeutronNetworkType: 'geneve,vlan,flat'
-#  NeutronTunnelTypes: 'vxlan' # not taking, not sure why, need to check tha name of parameter
-  NeutronBridgeMappings: 'default:br-provider'
+#  NeutronTunnelTypes: 'vxlan'
+##  NeutronBridgeMappings: 'default:br-provider'
   NeutronGlobalPhysnetMtu: 1500
 
-
-
   NovaIPv6: True
-  NovaSchedulerDefaultFilters: ['RetryFilter','AvailabilityZoneFilter','RamFilter','ComputeFilter','ComputeCapabilitiesFilter','ImagePropertiesFilter','ServerGroupAntiAffinityFilter','ServerGroupAffinityFilter','PciPassthroughFilter','NUMATopologyFilter','AggregateInstanceExtraSpecsFilter','AggregateCoreFilter']
+  ###NovaSchedulerDefaultFilters: ['RetryFilter','AvailabilityZoneFilter','RamFilter','ComputeFilter','ComputeCapabilitiesFilter','ImagePropertiesFilter','ServerGroupAntiAffinityFilter','ServerGroupAffinityFilter','PciPassthroughFilter','NUMATopologyFilter','AggregateInstanceExtraSpecsFilter','AggregateCoreFilter']
   NovaReservedHostMemory: 16384
 
   BannerText: |
