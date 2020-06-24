@@ -1,6 +1,6 @@
-# Generated with the following on 2020-05-08T20:10:35.949138
+# Generated with the following on 2020-06-18T13:48:46.571343
 #
-#   openstack tripleo container image prepare default --local-push-destination --output-env-file containers-prepare-parameter.yaml
+#   openstack tripleo container image prepare default --output-env-file containers-prepare-parameter.yaml --local-push-destination
 #
 
 parameter_defaults:
@@ -12,7 +12,7 @@ parameter_defaults:
       ceph_alertmanager_tag: v0.16.2
       ceph_grafana_image: grafana
       ceph_grafana_namespace: docker.io/grafana
-      ceph_grafana_tag: 5.2.4
+      ceph_grafana_tag: 5.4.3
       ceph_image: daemon
       ceph_namespace: docker.io/ceph
       ceph_node_exporter_image: node-exporter
@@ -21,10 +21,10 @@ parameter_defaults:
       ceph_prometheus_image: prometheus
       ceph_prometheus_namespace: docker.io/prom
       ceph_prometheus_tag: v2.7.2
-      ceph_tag: v4.0.4-stable-4.0-nautilus-centos-7-x86_64
+      ceph_tag: v4.0.12-stable-4.0-nautilus-centos-7-x86_64
       name_prefix: centos-binary-
       name_suffix: ''
-      namespace: docker.io/tripleotrain
+      namespace: docker.io/tripleomaster
       neutron_driver: ovn
       rhel_containers: false
       tag: current-tripleo
