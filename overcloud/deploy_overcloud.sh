@@ -1,15 +1,7 @@
 #!/bin/bash
 
-source /home/stack/stackrc
-# cd /home/stack
-#
-#openstack overcloud deploy \
-#  --templates \
-#  -r /home/stack/overcloud/aio_roles_data.yaml \
-#  -n /home/stack/overcloud/network_data_empty.yaml \
-#  -e /usr/share/openstack-tripleo-heat-templates/environments/enable-swap.yaml \
-#  -e /home/stack/overcloud/nodes.yaml
-  
+source ~/stackrc
+
 _THT="/usr/share/openstack-tripleo-heat-templates"
 _LTHT="$(pwd)"
 
@@ -18,15 +10,18 @@ _LTHT="$(pwd)"
 time openstack --verbose overcloud deploy \
     --force-postconfig \
     --templates \
-    --stack boobs \
+    --stack rem0te \
     -r ${_LTHT}/roles_data.yaml \
     -n ${_LTHT}/network_data.yaml \
     -e ${_LTHT}/node-info.yaml \
-    -e ${_LTHT}/private.yaml \
     -e ${_LTHT}/containers-prepare-parameter.yaml \
     -e ${_LTHT}/overcloud_images.yaml \
+    -e ${_LTHT}/private_small.yaml \
     -e ${_THT}/environments/disable-telemetry.yaml \
-    -e ${_THT}/environments/host-config-and-reboot.yaml \
-    --ntp-server pool.debian.org
+    --ntp-server tss.vu.lt
 
-
+#    -e ${_LTHT}/node-info.yaml \
+#    -e ${_LTHT}/private.yaml \
+#    -e ${_LTHT}/containers-prepare-parameter.yaml \
+#    -e ${_LTHT}/overcloud_images.yaml \
+#    -e ${_THT}/environments/host-config-and-reboot.yaml \
