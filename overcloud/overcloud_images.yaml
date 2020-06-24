@@ -1,77 +1,149 @@
-  ContainerOctaviaHousekeepingImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-octavia-housekeeping:current-tripleo
-113
-  ContainerOctaviaWorkerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-octavia-worker:current-tripleo
-114
-  ContainerOpenvswitchImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-neutron-openvswitch-agent:current-tripleo
-115
-  ContainerOvnControllerConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-ovn-controller:current-tripleo
-116
-  ContainerOvnControllerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-ovn-controller:current-tripleo
-117
-  ContainerOvnDbsConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-ovn-northd:current-tripleo
-118
-  ContainerOvnDbsImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-ovn-northd:current-tripleo
-119
-  ContainerOvnNbDbImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-ovn-nb-db-server:current-tripleo
-120
-  ContainerOvnNorthdImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-ovn-northd:current-tripleo
-121
-  ContainerOvnSbDbImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-ovn-sb-db-server:current-tripleo
-122
-  ContainerPlacementConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-placement-api:current-tripleo
-123
-  ContainerPlacementImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-placement-api:current-tripleo
-124
-  ContainerQdrouterdConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-qdrouterd:current-tripleo
-125
-  ContainerQdrouterdImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-qdrouterd:current-tripleo
-126
-  ContainerRabbitmqConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-rabbitmq:current-tripleo
-127
-  ContainerRabbitmqImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-rabbitmq:current-tripleo
-128
-  ContainerRedisConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-redis:current-tripleo
-129
-  ContainerRedisImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-redis:current-tripleo
-130
-  ContainerRsyslogConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-rsyslog:current-tripleo
-131
-  ContainerRsyslogImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-rsyslog:current-tripleo
-132
-  ContainerRsyslogSidecarConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-rsyslog:current-tripleo
-133
-  ContainerRsyslogSidecarImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-rsyslog:current-tripleo
-134
-  ContainerSaharaApiImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-sahara-api:current-tripleo
-135
-  ContainerSaharaConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-sahara-api:current-tripleo
-136
-  ContainerSaharaEngineImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-sahara-engine:current-tripleo
-137
-  ContainerSkydiveAgentImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-skydive-agent:current-tripleo
-138
-  ContainerSkydiveAnalyzerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-skydive-analyzer:current-tripleo
-139
-  ContainerSwiftAccountImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-swift-account:current-tripleo
-140
-  ContainerSwiftConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-swift-proxy-server:current-tripleo
-141
-  ContainerSwiftContainerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-swift-container:current-tripleo
-142
-  ContainerSwiftObjectImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-swift-object:current-tripleo
-143
-  ContainerSwiftProxyImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-swift-proxy-server:current-tripleo
-144
-  ContainerZaqarConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-zaqar-wsgi:current-tripleo
-145
-  ContainerZaqarImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleotrain/centos-binary-zaqar-wsgi:current-tripleo
-146
+# Generated with the following on 2020-06-23T14:54:27.577341
+#
+#   openstack tripleo container image prepare -e containers-prepare-parameter.yaml --output-env-file=overcloud_images.yaml --verbose
+#
+
+parameter_defaults:
+  AlertManagerContainerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/prom/alertmanager:v0.16.2
+  ContainerAodhApiImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-aodh-api:current-tripleo
+  ContainerAodhConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-aodh-api:current-tripleo
+  ContainerAodhEvaluatorImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-aodh-evaluator:current-tripleo
+  ContainerAodhListenerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-aodh-listener:current-tripleo
+  ContainerAodhNotifierImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-aodh-notifier:current-tripleo
+  ContainerBarbicanApiImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-barbican-api:current-tripleo
+  ContainerBarbicanConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-barbican-api:current-tripleo
+  ContainerBarbicanKeystoneListenerConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-barbican-keystone-listener:current-tripleo
+  ContainerBarbicanKeystoneListenerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-barbican-keystone-listener:current-tripleo
+  ContainerBarbicanWorkerConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-barbican-worker:current-tripleo
+  ContainerBarbicanWorkerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-barbican-worker:current-tripleo
+  ContainerCeilometerCentralImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-ceilometer-central:current-tripleo
+  ContainerCeilometerComputeImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-ceilometer-compute:current-tripleo
+  ContainerCeilometerConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-ceilometer-central:current-tripleo
+  ContainerCeilometerNotificationImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-ceilometer-notification:current-tripleo
+  ContainerCephDaemonImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/ceph/daemon:v4.0.12-stable-4.0-nautilus-centos-7-x86_64
+  ContainerCinderApiImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-cinder-api:current-tripleo
+  ContainerCinderBackupImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-cinder-backup:current-tripleo
+  ContainerCinderConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-cinder-api:current-tripleo
+  ContainerCinderSchedulerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-cinder-scheduler:current-tripleo
+  ContainerCinderVolumeImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-cinder-volume:current-tripleo
+  ContainerClustercheckConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-mariadb:current-tripleo
+  ContainerClustercheckImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-mariadb:current-tripleo
+  ContainerCollectdConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-collectd:current-tripleo
+  ContainerCollectdImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-collectd:current-tripleo
+  ContainerCrondConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-cron:current-tripleo
+  ContainerCrondImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-cron:current-tripleo
+  ContainerDesignateApiImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-designate-api:current-tripleo
+  ContainerDesignateBackendBIND9Image: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-designate-backend-bind9:current-tripleo
+  ContainerDesignateCentralImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-designate-central:current-tripleo
+  ContainerDesignateConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-designate-worker:current-tripleo
+  ContainerDesignateMDNSImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-designate-mdns:current-tripleo
+  ContainerDesignateProducerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-designate-producer:current-tripleo
+  ContainerDesignateSinkImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-designate-sink:current-tripleo
+  ContainerDesignateWorkerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-designate-worker:current-tripleo
+  ContainerEtcdConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-etcd:current-tripleo
+  ContainerEtcdImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-etcd:current-tripleo
+  ContainerGlanceApiConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-glance-api:current-tripleo
+  ContainerGlanceApiImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-glance-api:current-tripleo
+  ContainerGnocchiApiImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-gnocchi-api:current-tripleo
+  ContainerGnocchiConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-gnocchi-api:current-tripleo
+  ContainerGnocchiMetricdImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-gnocchi-metricd:current-tripleo
+  ContainerGnocchiStatsdImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-gnocchi-statsd:current-tripleo
+  ContainerHAProxyConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-haproxy:current-tripleo
+  ContainerHAProxyImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-haproxy:current-tripleo
+  ContainerHeatApiCfnConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-heat-api-cfn:current-tripleo
+  ContainerHeatApiCfnImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-heat-api-cfn:current-tripleo
+  ContainerHeatApiConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-heat-api:current-tripleo
+  ContainerHeatApiImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-heat-api:current-tripleo
+  ContainerHeatConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-heat-api:current-tripleo
+  ContainerHeatEngineImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-heat-engine:current-tripleo
+  ContainerHorizonConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-horizon:current-tripleo
+  ContainerHorizonImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-horizon:current-tripleo
+  ContainerIronicApiConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-ironic-api:current-tripleo
+  ContainerIronicApiImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-ironic-api:current-tripleo
+  ContainerIronicConductorImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-ironic-conductor:current-tripleo
+  ContainerIronicConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-ironic-pxe:current-tripleo
+  ContainerIronicInspectorConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-ironic-inspector:current-tripleo
+  ContainerIronicInspectorImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-ironic-inspector:current-tripleo
+  ContainerIronicNeutronAgentImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-ironic-neutron-agent:current-tripleo
+  ContainerIronicPxeImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-ironic-pxe:current-tripleo
+  ContainerIscsidConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-iscsid:current-tripleo
+  ContainerIscsidImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-iscsid:current-tripleo
+  ContainerKeystoneConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-keystone:current-tripleo
+  ContainerKeystoneImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-keystone:current-tripleo
+  ContainerManilaApiImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-manila-api:current-tripleo
+  ContainerManilaConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-manila-api:current-tripleo
+  ContainerManilaSchedulerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-manila-scheduler:current-tripleo
+  ContainerManilaShareImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-manila-share:current-tripleo
+  ContainerMemcachedConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-memcached:current-tripleo
+  ContainerMemcachedImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-memcached:current-tripleo
+  ContainerMetricsQdrConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-qdrouterd:current-tripleo
+  ContainerMetricsQdrImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-qdrouterd:current-tripleo
+  ContainerMistralApiImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-mistral-api:current-tripleo
+  ContainerMistralConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-mistral-api:current-tripleo
+  ContainerMistralEngineImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-mistral-engine:current-tripleo
+  ContainerMistralEventEngineImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-mistral-event-engine:current-tripleo
+  ContainerMistralExecutorImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-mistral-executor:current-tripleo
+  ContainerMultipathdConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-multipathd:current-tripleo
+  ContainerMultipathdImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-multipathd:current-tripleo
+  ContainerMysqlClientConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-mariadb:current-tripleo
+  ContainerMysqlConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-mariadb:current-tripleo
+  ContainerMysqlImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-mariadb:current-tripleo
+  ContainerNeutronApiImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-neutron-server:current-tripleo
+  ContainerNeutronConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-neutron-server:current-tripleo
+  ContainerNeutronDHCPImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-neutron-dhcp-agent:current-tripleo
+  ContainerNeutronL3AgentImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-neutron-l3-agent:current-tripleo
+  ContainerNeutronMetadataImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-neutron-metadata-agent:current-tripleo
+  ContainerNovaApiImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-nova-api:current-tripleo
+  ContainerNovaComputeImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-nova-compute:current-tripleo
+  ContainerNovaComputeIronicImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-nova-compute-ironic:current-tripleo
+  ContainerNovaConductorImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-nova-conductor:current-tripleo
+  ContainerNovaConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-nova-api:current-tripleo
+  ContainerNovaLibvirtConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-nova-compute:current-tripleo
+  ContainerNovaLibvirtImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-nova-libvirt:current-tripleo
+  ContainerNovaMetadataConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-nova-api:current-tripleo
+  ContainerNovaMetadataImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-nova-api:current-tripleo
+  ContainerNovaSchedulerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-nova-scheduler:current-tripleo
+  ContainerNovaVncProxyImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-nova-novncproxy:current-tripleo
+  ContainerOctaviaApiImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-octavia-api:current-tripleo
+  ContainerOctaviaConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-octavia-api:current-tripleo
+  ContainerOctaviaDriverAgentConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-octavia-api:current-tripleo
+  ContainerOctaviaDriverAgentImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-octavia-api:current-tripleo
+  ContainerOctaviaHealthManagerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-octavia-health-manager:current-tripleo
+  ContainerOctaviaHousekeepingImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-octavia-housekeeping:current-tripleo
+  ContainerOctaviaWorkerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-octavia-worker:current-tripleo
+  ContainerOpenvswitchImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-neutron-openvswitch-agent:current-tripleo
+  ContainerOvnControllerConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-ovn-controller:current-tripleo
+  ContainerOvnControllerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-ovn-controller:current-tripleo
+  ContainerOvnDbsConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-ovn-northd:current-tripleo
+  ContainerOvnDbsImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-ovn-northd:current-tripleo
+  ContainerOvnMetadataImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-neutron-metadata-agent-ovn:current-tripleo
+  ContainerOvnNbDbImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-ovn-nb-db-server:current-tripleo
+  ContainerOvnNorthdImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-ovn-northd:current-tripleo
+  ContainerOvnSbDbImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-ovn-sb-db-server:current-tripleo
+  ContainerPlacementConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-placement-api:current-tripleo
+  ContainerPlacementImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-placement-api:current-tripleo
+  ContainerQdrouterdConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-qdrouterd:current-tripleo
+  ContainerQdrouterdImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-qdrouterd:current-tripleo
+  ContainerRabbitmqConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-rabbitmq:current-tripleo
+  ContainerRabbitmqImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-rabbitmq:current-tripleo
+  ContainerRedisConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-redis:current-tripleo
+  ContainerRedisImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-redis:current-tripleo
+  ContainerRsyslogConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-rsyslog:current-tripleo
+  ContainerRsyslogImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-rsyslog:current-tripleo
+  ContainerRsyslogSidecarConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-rsyslog:current-tripleo
+  ContainerRsyslogSidecarImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-rsyslog:current-tripleo
+  ContainerSaharaApiImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-sahara-api:current-tripleo
+  ContainerSaharaConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-sahara-api:current-tripleo
+  ContainerSaharaEngineImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-sahara-engine:current-tripleo
+  ContainerSwiftAccountImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-swift-account:current-tripleo
+  ContainerSwiftConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-swift-proxy-server:current-tripleo
+  ContainerSwiftContainerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-swift-container:current-tripleo
+  ContainerSwiftObjectImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-swift-object:current-tripleo
+  ContainerSwiftProxyImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-swift-proxy-server:current-tripleo
+  ContainerZaqarConfigImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-zaqar-wsgi:current-tripleo
+  ContainerZaqarImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/tripleomaster/centos-binary-zaqar-wsgi:current-tripleo
   DockerInsecureRegistryAddress:
-147
   - $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787
-148
-  GrafanaContainerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/grafana/grafana:5.2.4
-149
+  GrafanaContainerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/grafana/grafana:5.4.3
   NodeExporterContainerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/prom/node-exporter:v0.17.0
-150
-  PrometheusContainerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/prom/prometheus:v2.7.2r
+  PrometheusContainerImage: $(grep ^local_ip ~/undercloud.conf | awk '-F=' '{print $2}'):8787/prom/prometheus:v2.7.2
