@@ -1,7 +1,7 @@
 resource_registry:
   # OS::TripleO::Controller::Net::SoftwareConfig: /home/stack/overcloud/net-controller.yaml
-  ##OS::TripleO::Controller::Net::SoftwareConfig: net-config/controller.yaml
-  ##OS::TripleO::ComputeS01::Net::SoftwareConfig: net-config/computes01.yaml
+  OS::TripleO::Controller::Net::SoftwareConfig: net-config/controller.yaml
+  OS::TripleO::ComputeS01::Net::SoftwareConfig: net-config/computes01.yaml
   # OS::TripleO::ComputeS01::Net::SoftwareConfig: /home/stack/overcloud/net-computes01.yaml
 
 parameter_defaults:
@@ -29,7 +29,7 @@ parameter_defaults:
     nova::cpu_allocation_ratio: 4.0
     nova::compute::libvirt::rx_queue_size: 1024
     nova::compute::libvirt::tx_queue_size: 1024
-    nova::compute::resume_guests_state_on_host_boot: true
+    ###nova::compute::resume_guests_state_on_host_boot: true
 
   NetworkDeploymentActions: ['CREATE','UPDATE']
   BondInterfaceOvsOptions: 'bond_mode=active-backup'
@@ -38,10 +38,12 @@ parameter_defaults:
 
 #  NeutronEnableIsolatedMetadata: true
 #  NeutronEnableForceMetadata: true
-  NeutronNetworkType: 'geneve,vlan,flat'
+  NeutronNetworkType: 'vlan,geneve'
 #  NeutronTunnelTypes: 'vxlan'
-##  NeutronBridgeMappings: 'default:br-provider'
+#  NeutronBridgeMappings: 'default:br-provider'
   NeutronGlobalPhysnetMtu: 1500
+
+
 
   NovaIPv6: True
   ###NovaSchedulerDefaultFilters: ['RetryFilter','AvailabilityZoneFilter','RamFilter','ComputeFilter','ComputeCapabilitiesFilter','ImagePropertiesFilter','ServerGroupAntiAffinityFilter','ServerGroupAffinityFilter','PciPassthroughFilter','NUMATopologyFilter','AggregateInstanceExtraSpecsFilter','AggregateCoreFilter']
@@ -49,7 +51,7 @@ parameter_defaults:
 
   BannerText: |
     ******************************************************************
-    * **************************** B0o0bs ************************** *
+    * **************************** rem0te ************************** *
     * This system is for the use of authorized users only. Usage of  *
     * this system may be monitored and recorded by system personnel. *
     * Anyone using this system expressly consents to such monitoring *
@@ -58,7 +60,7 @@ parameter_defaults:
     * the evidence from such monitoring to law enforcement officials.*
     ******************************************************************
   MessageOfTheDay: |
-    ALERT! You are entering into a secured Cloud B0o0bs area!
+    ALERT! You are entering into a secured TE Cloud rem0te area!
     This service is restricted to authorized users only.
     Please keep in mind, we are Angry and Bold! We will destroy you!
 
@@ -71,4 +73,3 @@ parameter_defaults:
 #  ControllerControlPlaneSubnet: leaf0
 #  ComputeLeaf0ControlPlaneSubnet: leaf0
 #  ComputeLeaf1ControlPlaneSubnet: leaf1
-# from https://docs.openstack.org/project-deploy-guide/tripleo-docs/latest/features/routed_spine_leaf_network.html
