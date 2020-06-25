@@ -50,7 +50,7 @@ parameters:
       lacp=active and/or bond_mode=balance-slb using this option.
     type: string
   EC2MetadataIp: # Override this via parameter_defaults
-    default: ' $( grep ^undercloud_public_host ~/undercloud.conf | awk '-F=' '{print $2}' ) '
+    default: '10.120.129.220'
     description: The IP address of the EC2 metadata server.
     type: string
 
@@ -81,17 +81,19 @@ resources:
                           - - {get_param: ControlPlaneIp}
                             - {get_param: ControlPlaneSubnetCidr}
                   routes:
-                    -
-                      ip_netmask: 169.254.169.254/32
-                      next_hop: {get_param: EC2MetadataIp}
-                    -
-                      default: true
-                      next_hop: {get_param: ControlPlaneDefaultRoute}
+                    list_concat_unique:
+                      - get_param: ControlPlaneStaticRoutes
+                      - - default: true
+                          next_hop:
+                            get_param: ControlPlaneDefaultRoute
+#                    -
+#                      ip_netmask: 169.254.169.254/32
+#                      next_hop: {get_param: EC2MetadataIp}
                   members:
                   - type: interface
-                    name: em3
+                    name: eno3
+                    mtu: 9000
                     primary: true
-
 
 outputs:
   OS::stack_id:
