@@ -50,11 +50,25 @@ parameters:
       lacp=active and/or bond_mode=balance-slb using this option.
     type: string
   EC2MetadataIp: # Override this via parameter_defaults
-    default: '$( grep ^undercloud_public_host ~/undercloud.conf | awk '-F=' '{print $2}' )'
+    default: '10.120.129.220'
     description: The IP address of the EC2 metadata server.
     type: string
 
 resources:
+  MinViableMtu:
+    # This resource resolves the minimum viable MTU for interfaces, bonds and
+    # bridges that carry multiple VLANs. Each VLAN may have different MTU. The
+    # bridge, bond or interface must have an MTU to allow the VLAN with the
+    # largest MTU.
+    type: OS::Heat::Value
+    properties:
+      type: number
+      value:
+        yaql:
+          expression: $.data.max()
+          data:
+            - {get_param: ControlPlaneMtu}
+
   OsNetConfigImpl:
     type: OS::Heat::SoftwareConfig
     properties:
@@ -72,6 +86,7 @@ resources:
                   bonding_options: "mode=active-backup"
                   use_dhcp: false
                   dns_servers: {get_param: DnsServers}
+                  domain: {get_param: DnsSearchDomains}
                   addresses:
                     -
                       ip_netmask:
@@ -80,17 +95,23 @@ resources:
                           - - {get_param: ControlPlaneIp}
                             - {get_param: ControlPlaneSubnetCidr}
                   routes:
-                    -
-                      ip_netmask: 169.254.169.254/32
-                      next_hop: {get_param: EC2MetadataIp}
-                    -
-                      default: true
-                      next_hop:
-                        get_param: ControlPlaneDefaultRoute
+                    list_concat_unique:
+                    - get_param: ControlPlaneStaticRoutes
+                    - - default: true
+                        next_hop:
+                          get_param: ControlPlaneDefaultRoute
+#                    -
+#                      ip_netmask: 169.254.169.254/32
+#                      next_hop: {get_param: EC2MetadataIp}
                   members:
                   - type: interface
-                    name: p1p1
+                    # name: nic4
+                    name: enp129s0f0
+                    mtu: 9000
                     primary: true
+                  - type: interface
+                    name: enp129s0f1
+                    mtu: 9000
 
 outputs:
   OS::stack_id:
