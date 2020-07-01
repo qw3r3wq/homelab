@@ -21,7 +21,8 @@ parameter_defaults:
     'capabilities:profile': 'compute'
 
   TimeZone: "Europe/Stockholm"
-
+  ControlFixedIPs: [{'ip_address':'10.120.129.199'}]
+  
   ComputeS01Parameters:
     NovaReservedHostMemory: 16384
     KernelArgs: "crashkernel=no rhgb"
@@ -29,21 +30,19 @@ parameter_defaults:
     nova::cpu_allocation_ratio: 4.0
     nova::compute::libvirt::rx_queue_size: 1024
     nova::compute::libvirt::tx_queue_size: 1024
-    ###nova::compute::resume_guests_state_on_host_boot: true
+    nova::compute::resume_guests_state_on_host_boot: true
 
   NetworkDeploymentActions: ['CREATE','UPDATE']
   BondInterfaceOvsOptions: 'bond_mode=active-backup'
-#  NeutronBridgeMappings: datacentre:br-ex
-  # NeutronExternalNetworkBridge: 'br-ex'
+  NeutronBridgeMappings: datacentre:br-ex
+  NeutronExternalNetworkBridge: 'br-ex'
 
 #  NeutronEnableIsolatedMetadata: true
 #  NeutronEnableForceMetadata: true
   NeutronNetworkType: 'vlan,geneve'
-#  NeutronTunnelTypes: 'vxlan'
+  NeutronTunnelTypes: 'vxlan'
 #  NeutronBridgeMappings: 'default:br-provider'
   NeutronGlobalPhysnetMtu: 1500
-
-
 
   NovaIPv6: True
   ###NovaSchedulerDefaultFilters: ['RetryFilter','AvailabilityZoneFilter','RamFilter','ComputeFilter','ComputeCapabilitiesFilter','ImagePropertiesFilter','ServerGroupAntiAffinityFilter','ServerGroupAffinityFilter','PciPassthroughFilter','NUMATopologyFilter','AggregateInstanceExtraSpecsFilter','AggregateCoreFilter']
@@ -63,13 +62,3 @@ parameter_defaults:
     ALERT! You are entering into a secured TE Cloud rem0te area!
     This service is restricted to authorized users only.
     Please keep in mind, we are Angry and Bold! We will destroy you!
-
-#parameter_defaults:
-#  OvercloudComputeLeaf0Flavor: compute-leaf0
-#  OvercloudComputeLeaf1Flavor: compute-leaf1
-#  ControllerCount: 3
-#  ComputeLeaf0Count: 5
-#  ComputeLeaf1Count: 5
-#  ControllerControlPlaneSubnet: leaf0
-#  ComputeLeaf0ControlPlaneSubnet: leaf0
-#  ComputeLeaf1ControlPlaneSubnet: leaf1
